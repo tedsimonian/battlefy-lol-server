@@ -1,5 +1,5 @@
 // router handler functions "controllers"
-const lol = require("../api/league");
+const lol = require("../apis/league");
 
 // getting summoner by name
 const getSummoner = async (req, res) => {
