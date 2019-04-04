@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:5000"];
+require("dotenv").config();
+
+const allowedOrigins = [process.env.CLIENT_ORIGIN, process.env.SERVER_ORIGIN];
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(
       }
       // do not allow access if site isn't apart of allowed origins
       if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(null, false);
+        return callback(new Error(`Invalid origin: ${origin}`), false);
       }
 
       return callback(null, true);
