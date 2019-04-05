@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const apiRoutes = require("./routes/routes");
 
-// require("dotenv").config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 const allowedOrigins = [process.env.CLIENT_ORIGIN, process.env.SERVER_ORIGIN];
 
@@ -20,7 +22,7 @@ const corsOptions = {
   }
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // api router
 app.use("/api", apiRoutes);

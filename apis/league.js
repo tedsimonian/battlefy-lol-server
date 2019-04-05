@@ -1,7 +1,9 @@
 const LeagueJS = require("leaguejs");
 const _ = require("lodash");
 
-// require("dotenv").config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 // setup the LeagueJs configuration, it requires the League of Legends Developer API Key and a platform ID ('na1', 'eu', etc)
 const leagueJs = new LeagueJS(process.env.LEAGUE_API_KEY, {
