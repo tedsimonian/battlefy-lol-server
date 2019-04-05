@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const apiRoutes = require("./routes/routes");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const allowedOrigins = [process.env.CLIENT_ORIGIN, process.env.SERVER_ORIGIN];
 
