@@ -20,7 +20,7 @@ const corsOptions = {
   }
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // api router
 app.use("/api", apiRoutes);
